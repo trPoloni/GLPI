@@ -1,0 +1,37 @@
+﻿name: poloni-glpi-dev
+
+services:
+  db:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_DATABASE: ${GLPI_DB_NAME}
+      MYSQL_USER: ${GLPI_DB_USER}
+      MYSQL_PASSWORD: ${GLPI_DB_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - backend
+
+  glpi:
+    image: glpi/glpi:12.0.2
+    restart: unless-stopped
+    env_file:
+      - ../.env.dev
+    depends_on:
+      - db
+    ports:
+      - "127.0.0.1:9078:80"
+    volumes:
+      - glpi_data:/var/glpi
+      - ../plugins/poloniitsm:/var/www/glpi/plugins/poloniitsm
+    networks:
+      - backend
+
+networks:
+  backend:
+
+volumes:
+  mysql_data:
+  glpi_data:
