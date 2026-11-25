@@ -1,0 +1,14 @@
+﻿.env
+.env.*
+!.env.example
+**/secrets/
+**/backups/
+**/storage/
+**/vendor/
+*.sql
+*.sqlite
+*.db
+*.pem
+*.key
+*.pfx
+*.tar.gz
