@@ -1,0 +1,73 @@
+/*
+ * POLONI ITSM - Consultation Grid 3D
+ * Escopo: tabelas de consulta do GLPI.
+ * Nao altera menus, dashboards ou GridStack.
+ */
+
+:root {
+  --poloni-grid-blue: 40, 120, 189;
+  --poloni-grid-orange: 242, 138, 37;
+}
+
+/* Contorno e profundidade do conjunto de resultados */
+
+body .search-results .table-responsive,
+body .search-results table,
+body table.tab_cadre_fixe,
+body table.tab_cadre_pager {
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(15,35,65,.09);
+}
+
+/* Linhas de consulta: alternancia de sombra */
+
+body .search-results table tbody tr,
+body table.tab_cadre_fixe tbody tr,
+body table.tab_cadre_pager tbody tr {
+  --row-accent: var(--poloni-grid-blue);
+  position: relative;
+  transition:
+    filter .18s ease,
+    box-shadow .18s ease,
+    background-color .18s ease;
+}
+
+body .search-results table tbody tr:nth-child(even),
+body table.tab_cadre_fixe tbody tr:nth-child(even),
+body table.tab_cadre_pager tbody tr:nth-child(even) {
+  --row-accent: var(--poloni-grid-orange);
+}
+
+/* Preservar o comportamento nativo da tabela:
+   sem transform, display ou alteracao de dimensoes. */
+
+@media (hover: hover) {
+  body .search-results table tbody tr:hover,
+  body table.tab_cadre_fixe tbody tr:hover,
+  body table.tab_cadre_pager tbody tr:hover {
+    filter: brightness(1.015);
+    box-shadow:
+      inset 4px 0 0 rgba(var(--row-accent), .85),
+      0 5px 14px rgba(var(--row-accent), .20);
+  }
+}
+
+/* Indicacao discreta nas celulas */
+
+@media (hover: hover) {
+  body .search-results table tbody tr:hover > td,
+  body table.tab_cadre_fixe tbody tr:hover > td,
+  body table.tab_cadre_pager tbody tr:hover > td {
+    background-color: rgba(var(--row-accent), .045);
+  }
+}
+
+/* Acessibilidade */
+
+@media (prefers-reduced-motion: reduce) {
+  body .search-results table tbody tr,
+  body table.tab_cadre_fixe tbody tr,
+  body table.tab_cadre_pager tbody tr {
+    transition: none;
+  }
+}

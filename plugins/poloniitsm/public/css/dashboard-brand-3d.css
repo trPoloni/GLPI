@@ -1,0 +1,86 @@
+/*
+ * POLONI ITSM - DASHBOARD BRAND 3D 1.0
+ * Azul e laranja da identidade visual.
+ * Somente apresentacao, sem alterar GridStack.
+ */
+
+/* Variaveis */
+:root {
+  --poloni-blue: 45, 112, 192;
+  --poloni-orange: 241, 132, 35;
+}
+
+/* Regras comuns dos widgets */
+.grid-stack > .grid-stack-item {
+  --widget-accent: var(--poloni-blue);
+}
+
+.grid-stack > .grid-stack-item:nth-child(even) {
+  --widget-accent: var(--poloni-orange);
+}
+
+/* Containers: sombra externa e borda iluminada */
+.grid-stack > .grid-stack-item
+.grid-stack-item-content {
+  border-radius: 14px !important;
+  box-shadow:
+    0 3px 7px rgba(12, 32, 56, .10),
+    0 10px 22px rgba(12, 32, 56, .13),
+    0 0 0 1px rgba(var(--widget-accent), .20)
+    !important;
+  transition:
+    box-shadow .24s ease,
+    filter .24s ease !important;
+}
+
+/* Conteudos coloridos e graficos */
+.grid-stack > .grid-stack-item .card {
+  border-radius: 13px !important;
+  box-shadow:
+    inset 0 2px 1px rgba(255,255,255,.25),
+    inset 0 -3px 6px rgba(0,0,0,.045),
+    0 6px 14px rgba(var(--widget-accent), .18)
+    !important;
+  transition:
+    box-shadow .24s ease,
+    filter .24s ease !important;
+}
+
+/* Hover: profundidade mais forte */
+@media (hover: hover) {
+  .grid-stack > .grid-stack-item:hover
+  .grid-stack-item-content {
+    box-shadow:
+      0 8px 15px rgba(12,32,56,.15),
+      0 18px 34px rgba(var(--widget-accent),.28),
+      0 0 0 2px rgba(var(--widget-accent),.58)
+      !important;
+  }
+
+  .grid-stack > .grid-stack-item:hover .card {
+    box-shadow:
+      inset 0 2px 1px rgba(255,255,255,.32),
+      inset 0 -3px 7px rgba(0,0,0,.07),
+      0 11px 24px rgba(var(--widget-accent),.29)
+      !important;
+    filter: brightness(1.025);
+  }
+}
+
+/* Evitar alteracoes no posicionamento dos graficos */
+
+
+/* Responsividade e acessibilidade */
+@media (max-width: 768px) {
+  .grid-stack .grid-stack-item-content,
+  .grid-stack .card {
+    border-radius: 10px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grid-stack .grid-stack-item-content,
+  .grid-stack .card {
+    transition: none !important;
+  }
+}

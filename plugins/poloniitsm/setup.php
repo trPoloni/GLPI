@@ -13,6 +13,7 @@ function plugin_init_poloniitsm()
         'css/poloni-3d-v05.css';
     $PLUGIN_HOOKS['add_css']['poloniitsm'][] = 'css/consultation-grid-poloni-v2.css';
     $PLUGIN_HOOKS['add_css']['poloniitsm'][] = 'css/forms-poloni-3d.css';
+    $PLUGIN_HOOKS['add_css_anonymous_page']['poloniitsm'] = 'css/login-poloni.css';
 
 }
 

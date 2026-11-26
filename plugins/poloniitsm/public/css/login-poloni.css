@@ -1,0 +1,89 @@
+/*
+ * Poloni ITSM - Login Glass v1
+ * Transparencia aprovada: 45% branco
+ * Escopo exclusivo da tela de login
+ */
+
+body:has(.glpi-logo) {
+  --poloni-login-glass: rgba(255,255,255,.45);
+  --poloni-login-orange: #f28a25;
+}
+
+/* Painel principal */
+body:has(.glpi-logo) :is(
+  .container-tight .card,
+  .login-card,
+  .card.card-md
+) {
+  background: var(--poloni-login-glass) !important;
+
+  border: 1px solid rgba(255,255,255,.45) !important;
+  border-radius: 16px !important;
+
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+
+  box-shadow:
+    0 15px 45px rgba(10,30,60,.24) !important;
+}
+
+/* Manter o interior transparente */
+body:has(.glpi-logo) :is(
+  .container-tight .card,
+  .login-card,
+  .card.card-md
+) .card-body {
+  background: transparent !important;
+}
+
+/* Campos */
+body:has(.glpi-logo) :is(
+  input.form-control,
+  select.form-select,
+  .container-tight input,
+  .container-tight select
+) {
+  background-color: rgba(255,255,255,.85) !important;
+  border-radius: 9px !important;
+
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease;
+}
+
+/* Foco alaranjado */
+body:has(.glpi-logo) :is(
+  input.form-control,
+  select.form-select,
+  .container-tight input,
+  .container-tight select
+):focus {
+  border-color: var(--poloni-login-orange) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(242,138,37,.16),
+    0 5px 14px rgba(242,138,37,.14) !important;
+}
+
+/* Botao de entrada */
+body:has(.glpi-logo) button[type="submit"] {
+  border-radius: 9px !important;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+
+@media (hover: hover) {
+  body:has(.glpi-logo) button[type="submit"]:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+      0 7px 17px rgba(242,138,37,.24) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:has(.glpi-logo) button[type="submit"],
+  body:has(.glpi-logo) input,
+  body:has(.glpi-logo) select {
+    transition: none !important;
+  }
+}

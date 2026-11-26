@@ -1,0 +1,22 @@
+services:
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - glpi
+
+
+  glpi:
+    volumes:
+      - ./config/apache/poloni-css.conf:/etc/apache2/conf-enabled/poloni-css.conf:ro
+
+volumes:
+  caddy_data:
+  caddy_config:
