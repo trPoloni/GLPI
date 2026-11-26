@@ -12,3 +12,35 @@
 *.key
 *.pfx
 *.tar.gz
+
+# Backups e arquivos temporarios
+*.bak
+*.backup
+*.orig
+*.tmp
+*.log
+
+# Credenciais
+.env
+.env.*
+!.env.example
+!.env.*.example
+config_db.php
+glpicrypt.key
+oauth.pem
+oauth.pub
+*.pem
+*.key
+
+# Dados e bancos
+*.sql
+*.sql.gz
+*.tar.gz
+*.dump
+/backups/
+/storage/
+/mirror/
+
+# Dependencias geradas
+/vendor/
+/node_modules/

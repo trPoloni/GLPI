@@ -1,0 +1,86 @@
+/*
+ * POLONI ITSM - Grids de consulta v2
+ * GLPI 12
+ * Branco / azul claro / hover laranja.
+ * Nao altera menus, cards ou dashboards.
+ */
+
+:root {
+  --poloni-row-white: #ffffff;
+  --poloni-row-blue: #eaf4ff;
+  --poloni-row-orange: #fff0da;
+  --poloni-row-accent: #f28a25;
+}
+
+/* Somente tabelas dentro das consultas do GLPI */
+
+:is(
+  .search-container,
+  [data-glpi-search-container]
+) table tbody > tr:not(.selected):not(.table-active):nth-child(odd) {
+  --poloni-row-color: var(--poloni-row-white);
+}
+
+:is(
+  .search-container,
+  [data-glpi-search-container]
+) table tbody > tr:not(.selected):not(.table-active):nth-child(even) {
+  --poloni-row-color: var(--poloni-row-blue);
+}
+
+/* Aplicar nas celulas, inclusive com o tema Tabler */
+
+:is(
+  .search-container,
+  [data-glpi-search-container]
+) table tbody > tr:not(.selected):not(.table-active) > td {
+  background-color: var(--poloni-row-color) !important;
+
+  box-shadow:
+    inset 0 0 0 9999px var(--poloni-row-color)
+    !important;
+
+  transition:
+    background-color .20s ease,
+    box-shadow .20s ease !important;
+}
+
+/* Hover laranja claro com discreto relevo */
+
+@media (hover: hover) {
+  :is(
+    .search-container,
+    [data-glpi-search-container]
+  ) table tbody > tr:not(.selected):not(.table-active):hover > td {
+    background-color: var(--poloni-row-orange) !important;
+
+    box-shadow:
+      inset 0 0 0 9999px var(--poloni-row-orange),
+      inset 0 2px 0 rgba(242,138,37,.16),
+      inset 0 -2px 0 rgba(242,138,37,.16)
+      !important;
+  }
+
+  /* Borda laranja na primeira celula da linha */
+
+  :is(
+    .search-container,
+    [data-glpi-search-container]
+  ) table tbody > tr:not(.selected):not(.table-active):hover > td:first-child {
+    box-shadow:
+      inset 0 0 0 9999px var(--poloni-row-orange),
+      inset 4px 0 0 var(--poloni-row-accent)
+      !important;
+  }
+}
+
+/* Nao modificar as dimensoes ou layout da tabela */
+
+@media (prefers-reduced-motion: reduce) {
+  :is(
+    .search-container,
+    [data-glpi-search-container]
+  ) table tbody > tr > td {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,176 @@
+/*
+ * POLONI ITSM - Forms 3D v1
+ * GLPI 12 - Paginas autenticadas
+ *
+ * Nao modifica layout, validacoes ou funcionalidades.
+ */
+
+:root {
+    --pf-blue-bg: #eaf4ff;
+    --pf-blue-border: #c9dfef;
+    --pf-orange: #f28a25;
+    --pf-orange-light: #fff0df;
+    --pf-radius: 11px;
+    --pf-shadow:
+        0 3px 8px rgba(17, 48, 81, .07),
+        0 10px 24px rgba(17, 48, 81, .09);
+}
+
+/* PAINEIS E CONTAINERS DE FORMULARIOS */
+
+body form .card,
+body form fieldset,
+body .itil-form .card {
+    border-radius: var(--pf-radius);
+    box-shadow: var(--pf-shadow);
+}
+
+/* Paineis originalmente verdes, se usarem
+   as classes semanticas do tema Tabler. */
+
+body form :is(
+    .bg-green-lt,
+    .bg-success-lt,
+    .bg-success-subtle
+):not(.alert):not(.badge):not(.btn) {
+    background-color: var(--pf-blue-bg) !important;
+    border-color: var(--pf-blue-border) !important;
+}
+
+/* CAMPOS DE ENTRADA */
+
+body form :is(
+    .form-control,
+    .form-select,
+    textarea,
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    input[type="datetime-local"]
+) {
+    border-radius: 9px;
+    transition:
+        border-color .20s ease,
+        box-shadow .20s ease,
+        background-color .20s ease;
+}
+
+/* FOCO LARANJA */
+
+body form :is(
+    .form-control,
+    .form-select,
+    textarea,
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    input[type="datetime-local"]
+):focus {
+    border-color: var(--pf-orange) !important;
+    background-color: #fffdf9;
+    box-shadow:
+        0 0 0 3px rgba(242,138,37,.16),
+        0 5px 12px rgba(242,138,37,.12)
+        !important;
+    outline: none;
+}
+
+/* SELECTS MODERNOS */
+
+body .select2-container--focus
+.select2-selection,
+body .ts-wrapper.focus .ts-control {
+    border-color: var(--pf-orange) !important;
+    box-shadow:
+        0 0 0 3px rgba(242,138,37,.14)
+        !important;
+}
+
+/* EDITOR E ANEXOS */
+
+body form .tox,
+body form .fileupload,
+body form .dropzone {
+    border-radius: var(--pf-radius);
+    box-shadow: 0 3px 12px rgba(20,48,80,.08);
+}
+
+/* BOTOES DE FORMULARIO */
+
+body form .btn {
+    border-radius: 9px;
+    transition:
+        box-shadow .20s ease,
+        filter .20s ease;
+}
+
+@media (hover: hover) {
+    body form .btn:hover:not(:disabled) {
+        box-shadow:
+            0 5px 14px rgba(242,138,37,.23);
+        filter: brightness(1.035);
+    }
+}
+
+/* TITULOS E ROTULOS */
+
+body form label {
+    font-weight: 500;
+}
+
+/* PRESERVAR ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+    body form .form-control,
+    body form .form-select,
+    body form textarea,
+    body form input,
+    body form .btn {
+        transition: none !important;
+    }
+}
+/* ==============================================
+   POLONI - PAINEL AZUL DOS FORMULARIOS ITIL
+   GLPI 12 - Timeline / Novo chamado
+   ============================================== */
+
+body #itil-form .timeline-content.left.card {
+    background-color: #eaf4ff !important;
+    border: 1px solid #b9d8ef !important;
+    border-radius: 13px !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.85),
+        0 5px 12px rgba(20,75,125,.09),
+        0 14px 28px rgba(20,75,125,.10)
+        !important;
+
+    transition:
+        box-shadow .22s ease,
+        border-color .22s ease !important;
+}
+
+/* Efeito 3D suave no painel ao passar o mouse */
+
+@media (hover: hover) {
+    body #itil-form .timeline-content.left.card:hover {
+        border-color: #efaa60 !important;
+
+        box-shadow:
+            inset 0 1px 0 rgba(255,255,255,.9),
+            0 7px 16px rgba(30,90,145,.12),
+            0 17px 34px rgba(242,138,37,.16)
+            !important;
+    }
+}
+
+/* Manter destaque laranja nos campos */
+
+body #itil-form .timeline-content.left.card
+:is(input.form-control, textarea.form-control, .form-select):focus {
+    border-color: #f28a25 !important;
+    box-shadow:
+        0 0 0 3px rgba(242,138,37,.16),
+        0 6px 15px rgba(242,138,37,.14)
+        !important;
+}

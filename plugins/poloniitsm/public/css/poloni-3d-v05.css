@@ -1,0 +1,148 @@
+/*
+ * POLONI ITSM - TEMA 3D v0.5
+ * Escopo: menu lateral e dashboards internos.
+ * Nao altera login, permissoes ou banco de dados.
+ */
+
+:root {
+  --p3d-radius: 13px;
+  --p3d-ease: cubic-bezier(.2,.7,.2,1);
+}
+
+/* ========== MENU LATERAL ========== */
+
+body .navbar-vertical {
+  background: linear-gradient(
+    165deg,
+    #344b74 0%,
+    #2e4166 48%,
+    #1d304f 100%
+  ) !important;
+  box-shadow:
+    7px 0 20px rgba(6,20,43,.25),
+    inset -1px 0 rgba(255,255,255,.10) !important;
+}
+
+body .navbar-vertical .nav-link {
+  position: relative;
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 11px !important;
+  margin: 5px 9px !important;
+  padding: 10px 12px !important;
+  background: linear-gradient(
+    150deg,
+    rgba(255,255,255,.09),
+    rgba(255,255,255,.015)
+  ) !important;
+  box-shadow:
+    0 4px 8px rgba(4,15,34,.19),
+    inset 0 1px 0 rgba(255,255,255,.14) !important;
+  transition:
+    transform .18s var(--p3d-ease),
+    box-shadow .18s ease,
+    background-color .18s ease !important;
+}
+
+body .navbar-vertical .nav-link:hover {
+  transform: translateX(4px) translateY(-1px);
+  background: linear-gradient(
+    150deg,
+    rgba(255,255,255,.24),
+    rgba(255,255,255,.09)
+  ) !important;
+  box-shadow:
+    0 9px 17px rgba(0,0,0,.29),
+    inset 0 1px 0 rgba(255,255,255,.25) !important;
+}
+
+body .navbar-vertical .nav-link.active,
+body .navbar-vertical .nav-item.active > .nav-link,
+body .navbar-vertical .nav-link[aria-current="page"] {
+  border-color: rgba(255,200,80,.50) !important;
+  background: linear-gradient(
+    145deg,
+    rgba(255,197,76,.24),
+    rgba(255,255,255,.07)
+  ) !important;
+  box-shadow:
+    0 7px 16px rgba(0,0,0,.27),
+    inset 3px 0 0 #ffc45a,
+    inset 0 1px 0 rgba(255,255,255,.22) !important;
+}
+
+body .navbar-vertical .nav-link i,
+body .navbar-vertical .nav-link svg {
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,.32));
+  transition: transform .2s ease;
+}
+
+body .navbar-vertical .nav-link:hover i,
+body .navbar-vertical .nav-link:hover svg {
+  transform: scale(1.10);
+}
+
+/* ========== DASHBOARD ========== */
+
+/* Nao alterar posicao nem transform do GridStack. */
+
+body .grid-stack-item .grid-stack-item-content {
+  border-radius: var(--p3d-radius) !important;
+  box-shadow:
+    0 3px 5px rgba(10,28,52,.13),
+    0 12px 25px rgba(10,28,52,.15),
+    0 20px 35px rgba(10,28,52,.08) !important;
+  transition: box-shadow .2s ease !important;
+}
+
+body .grid-stack-item:hover .grid-stack-item-content {
+  box-shadow:
+    0 6px 11px rgba(10,28,52,.17),
+    0 19px 38px rgba(10,28,52,.23) !important;
+}
+
+body .grid-stack-item .card.big-number {
+  border: 1px solid rgba(255,255,255,.20) !important;
+  border-radius: var(--p3d-radius) !important;
+  box-shadow:
+    inset 0 2px 1px rgba(255,255,255,.30),
+    inset 0 -3px 7px rgba(0,0,0,.075),
+    0 5px 11px rgba(9,28,52,.16) !important;
+  transition:
+    box-shadow .2s ease,
+    filter .2s ease !important;
+}
+
+body .grid-stack-item:hover .card.big-number {
+  filter: brightness(1.045);
+  box-shadow:
+    inset 0 2px 1px rgba(255,255,255,.38),
+    inset 0 -3px 7px rgba(0,0,0,.08),
+    0 11px 22px rgba(9,28,52,.25) !important;
+}
+
+/* Graficos e painéis, preservando as dimensoes. */
+
+body .grid-stack-item .card:not(.big-number) {
+  border-radius: var(--p3d-radius) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.6),
+    0 8px 20px rgba(10,28,52,.15) !important;
+}
+
+/* ========== MOBILE E ACESSIBILIDADE ========== */
+
+@media (max-width: 768px) {
+  body .navbar-vertical .nav-link:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body .navbar-vertical .nav-link,
+  body .navbar-vertical .nav-link i,
+  body .navbar-vertical .nav-link svg,
+  body .grid-stack-item .grid-stack-item-content,
+  body .grid-stack-item .card.big-number {
+    transition: none !important;
+  }
+}
