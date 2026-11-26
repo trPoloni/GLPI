@@ -87,3 +87,12 @@ body:has(.glpi-logo) button[type="submit"] {
     transition: none !important;
   }
 }
+
+/* POLONI - LOGO DO LOGIN PERSISTENTE */
+
+body:has(.glpi-logo) .glpi-logo {
+    content: url("/plugins/poloniitsm/css/logo-poloni-login.png") !important;
+    width: 200px;
+    height: 110px;
+    object-fit: contain;
+}
