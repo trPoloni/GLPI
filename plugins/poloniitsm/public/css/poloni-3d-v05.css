@@ -146,3 +146,33 @@ body .grid-stack-item .card:not(.big-number) {
     transition: none !important;
   }
 }
+/* ==================================================
+   POLONI - IDENTIDADE VISUAL INTERNA
+   Menu lateral e janela Sobre - GLPI 12
+   ================================================== */
+
+/* Logo do menu lateral expandido */
+body .sidebar .navbar-brand .glpi-logo,
+body .navbar-vertical .navbar-brand .glpi-logo {
+    content: url("/plugins/poloniitsm/css/logo-poloni-login.png") !important;
+    width: 115px !important;
+    height: 64px !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+}
+
+/* Logo reduzida quando o menu estiver recolhido */
+body.navbar-collapsed .sidebar .navbar-brand .glpi-logo,
+body.navbar-collapsed .navbar-vertical .navbar-brand .glpi-logo {
+    width: 42px !important;
+    height: 42px !important;
+}
+
+/* Logo do dialogo Sobre */
+body .modal img[src*="logo-GLPI-100-grey.png"] {
+    content: url("/plugins/poloniitsm/css/logo-poloni-login.png") !important;
+    width: 125px !important;
+    max-width: 125px !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
